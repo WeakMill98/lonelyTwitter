@@ -83,6 +83,7 @@ public class LonelyTwitterActivity extends Activity {
 	
 	private void saveInFile(String text, Date date) {
 		try {
+
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
 			fos.write(new String(date.toString() + " | " + text)
