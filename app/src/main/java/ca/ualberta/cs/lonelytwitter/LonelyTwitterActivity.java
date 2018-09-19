@@ -21,8 +21,12 @@ import android.widget.ListView;
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
+
+	// Init of edit text and list view
 	private EditText bodyText;
 	private ListView oldTweetsList;
+	private Anger angermood;
+	private Sadness sadnessmood;
 	
 	/** Called when the activity is first created. */
 	@Override
