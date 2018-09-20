@@ -26,8 +26,6 @@ public class LonelyTwitterActivity extends Activity {
 	// Init of edit text and list view
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	private Anger angermood;
-	private Sadness sadnessmood;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -62,6 +60,19 @@ public class LonelyTwitterActivity extends Activity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
+	}
+
+	private Tweet CreateTweet(){
+		Tweet tweet = new Tweet();
+		Happiness happiness = new Happiness();
+		Sadness sadness = new Sadness();
+		Anger anger = new Anger();
+
+		tweet.AddMood(happiness);
+		tweet.AddMood(sadness);
+		tweet.AddMood(anger);
+
+		return tweet;
 	}
 
 	private String[] loadFromFile() {
