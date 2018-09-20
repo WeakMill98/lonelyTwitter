@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 public class LonelyTwitterActivity extends Activity {
 
+	// Cannot be changed later
 	private static final String FILENAME = "file.sav";
 
 	// Init of edit text and list view
@@ -31,6 +32,7 @@ public class LonelyTwitterActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		// Referrin to the Activity's oncreate method, since you extended it
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
@@ -54,6 +56,8 @@ public class LonelyTwitterActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
+
+		// The array of the tweets
 		String[] tweets = loadFromFile();
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				R.layout.list_item, tweets);
@@ -84,6 +88,8 @@ public class LonelyTwitterActivity extends Activity {
 	private void saveInFile(String text, Date date) {
 		try {
 
+			// Opening the file in append mode
+			// You are creating a file and then
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
 			fos.write(new String(date.toString() + " | " + text)
