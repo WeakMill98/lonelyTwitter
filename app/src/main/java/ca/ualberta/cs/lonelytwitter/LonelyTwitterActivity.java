@@ -63,21 +63,25 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	private Tweet CreateTweet(){
-		Tweet tweet = new Tweet();
+		Tweet normalTweet = new NormalTweet("");
 		Happiness happiness = new Happiness();
 		Sadness sadness = new Sadness();
 		Anger anger = new Anger();
 
-		tweet.AddMood(happiness);
-		tweet.AddMood(sadness);
-		tweet.AddMood(anger);
+		normalTweet.AddMood(happiness);
+		normalTweet.AddMood(sadness);
+		normalTweet.AddMood(anger);
 
-		return tweet;
+		return normalTweet;
 	}
 
 	private String[] loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
 		try {
+
+			Tweet normalTweet = new NormalTweet("");
+			normalTweet.setMessage("HHHHHHHHHhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+
 			FileInputStream fis = openFileInput(FILENAME);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			String line = in.readLine();
@@ -91,6 +95,8 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TooLongTweetException e){
 			e.printStackTrace();
 		}
 		return tweets.toArray(new String[tweets.size()]);

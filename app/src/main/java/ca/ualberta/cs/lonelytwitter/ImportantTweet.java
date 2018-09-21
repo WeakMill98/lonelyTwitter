@@ -1,10 +1,21 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.Date;
+
 public class ImportantTweet extends Tweet {
 
-    private String message;
+    //Empty argument constructor with default values
+    ImportantTweet() {
+        //Call the parent constructor to: avoid duplication!
+        super();
+    }
 
-    public ImportantTweet (String message) {
-        this.message = message;
+    ImportantTweet(String message) {
+        super(message);
+    }
+
+    @Override
+    public Boolean isImportant() {
+        return true;
     }
 }
