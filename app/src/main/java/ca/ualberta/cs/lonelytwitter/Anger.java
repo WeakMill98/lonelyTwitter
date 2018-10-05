@@ -1,5 +1,15 @@
 package ca.ualberta.cs.lonelytwitter;
 
+/*
+* class Anger
+*
+* Inherits the CurrentMood class
+*
+* has methods printMood and SmashSomething
+*
+* SmashSomething is a method exclusive to this clas
+* */
+
 import java.util.Date;
 
 public class Anger extends CurrentMood{

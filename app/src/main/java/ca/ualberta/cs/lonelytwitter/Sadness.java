@@ -2,6 +2,17 @@ package ca.ualberta.cs.lonelytwitter;
 
 import java.util.Date;
 
+/*
+* class for Sadness
+*
+* inherits the CurrentMood
+*
+* has methods printMood and Cry
+*
+* Cry is a method unique to the sadness class
+*
+* */
+
 public class Sadness extends CurrentMood{
     protected Date date;
 

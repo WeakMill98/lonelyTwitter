@@ -1,5 +1,13 @@
 package ca.ualberta.cs.lonelytwitter;
 
+/*
+* Abstract Super class
+* Meant for different emotions to inherit this class
+*
+* requires a printMood Method to be implemented by the children class
+*
+* */
+
 import java.util.Date;
 
 public abstract class CurrentMood    {

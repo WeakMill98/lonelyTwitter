@@ -1,6 +1,11 @@
 package ca.ualberta.cs.lonelytwitter;
-
-import java.util.Date;
+/*
+* Class ImportantTweet
+* Inherits the Tweet class
+*
+* Implements the isImportant Interface of the abstract tweet class
+* Adds a Boolean isImportant to True
+* */
 
 public class ImportantTweet extends Tweet {
 

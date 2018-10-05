@@ -1,5 +1,13 @@
 package ca.ualberta.cs.lonelytwitter;
 
+/*
+* class TooLongTweetException
+*
+* Inherits Exception
+*
+* When instantiated, throws an exception
+* */
+
 public class TooLongTweetException extends Exception {
 
     TooLongTweetException() {

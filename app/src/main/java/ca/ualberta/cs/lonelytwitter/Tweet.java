@@ -3,6 +3,18 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+* class abstract Tweet
+*
+* Contains a date, message, MAX_CHARS and an arraylist of emotions
+*
+* Must be implemented
+*
+* Has Getters and Setters for all properties, except for MAX_CHARS
+* Has two possible constructors, one default and one with a String parameter as input
+*
+* */
+
 public abstract class Tweet implements Tweetable {
 
     private Date date;
@@ -27,6 +39,7 @@ public abstract class Tweet implements Tweetable {
         return this.message;
     }
 
+    // Set a message only for when the message length is less than 100 characters
     public void setMessage(String message) throws TooLongTweetException {
         if (message.length() <= this.MAX_CHARS ) {
             this.message = message;

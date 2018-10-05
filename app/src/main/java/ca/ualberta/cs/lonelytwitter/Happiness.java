@@ -1,5 +1,13 @@
 package ca.ualberta.cs.lonelytwitter;
-
+/*
+* class Happiness
+*
+* Inherits CurrentMood
+* Has a beHappy and printMood function
+*
+* beHappy is exclusive to this class
+*
+* */
 import java.util.Date;
 
 public class Happiness extends CurrentMood{

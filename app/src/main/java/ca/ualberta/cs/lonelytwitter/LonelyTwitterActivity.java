@@ -39,15 +39,21 @@ public class LonelyTwitterActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// Referrin to the Activity's oncreate method, since you extended it
+		// Referring to the Activity's onCreate method, since you extended it
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		// Find the references to the XML path
+		// Includes the text body, the old tweet list view,
+		// as well as save and delete buttons
 		bodyText = (EditText) findViewById(R.id.body);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 		Button saveButton = (Button) findViewById(R.id.save);
 		Button clearButton = (Button) findViewById(R.id.clear);
 
+		// Set a click listener for the saveButton object
+		// Save the entry to the file and update the listview
+		// Save changes to an instance of the Important Tweet class
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -55,15 +61,17 @@ public class LonelyTwitterActivity extends Activity {
 				ImportantTweet importantTweet = new ImportantTweet();
 				try {
 					importantTweet.setMessage(text);
-				}catch (TooLongTweetException e){};
+				}catch (TooLongTweetException e){}
+
 				tweets.add(importantTweet);
 				adapter.notifyDataSetChanged();
 				saveInFile();
-
 			}
 		});
 
-
+		// Set a button for the clear button
+		// when a tweet is selected, if this button is pressed
+		// then that tweet will be deleted
 		clearButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				for(int i = tweets.size()-1 ; i >= 0; i--){
@@ -88,6 +96,8 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	// Creates a normal tweet type
+	// Will add instances of new moods to the normal tweet object
 	private Tweet CreateTweet(){
 		Tweet normalTweet = new NormalTweet("");
 		Happiness happiness = new Happiness();
@@ -101,6 +111,8 @@ public class LonelyTwitterActivity extends Activity {
 		return normalTweet;
 	}
 
+	// Loads Gson data from the save file
+	// Use an object you can instantiate in the TypeToken
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
