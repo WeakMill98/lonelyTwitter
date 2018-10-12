@@ -45,7 +45,8 @@ public class ElasticsearchTweetController {
         protected ArrayList<Tweet> doInBackground(String... params) {
             setClient();
             ArrayList<Tweet> tweets=new ArrayList<Tweet>();
-            Search search = new Search.Builder(params[0])
+            String queryString = "{ \"query\": { \"term\" : { \"message\" : \"" + params[0] + "\"}}}";
+            Search search = new Search.Builder(queryString)
                     .addIndex("shaiful-thursday")
                     .addType("tweet")
                     .build();

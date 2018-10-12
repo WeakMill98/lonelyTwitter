@@ -63,7 +63,7 @@ public class LonelyTwitterActivity extends Activity {
 
 			public void onClick(View v) {
 				setResult(RESULT_OK);
-				// tweetList.clear();
+				tweetList.clear();
 				// Add in the new tweets found
                 try {
                     tweetList = new ElasticsearchTweetController.GetTweetsTask()
